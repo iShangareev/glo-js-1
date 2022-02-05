@@ -8,7 +8,6 @@
  let service2 = prompt('Какой дополнительный тип услуги нужен?');
  let servicePrice2 = Number(prompt('Сколько это будет стоить?'));
 
-
  const showTypeOf = function (variable) {
    console.log(variable, typeof variable);
  };
@@ -44,11 +43,9 @@
    return servicePercentPrice;
  };
 
- showTypeOf(title);
- showTypeOf(screenPrice);
- showTypeOf(adaptive);
-
+ console.log(showTypeOf(title));
+ console.log(showTypeOf(screenPrice));
+ console.log(showTypeOf(adaptive));
  console.log(screens);
  console.log(getRollbackMessage(getFullPrice()));
  console.log(getServicePercentPrices());
-
