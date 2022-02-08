@@ -19,7 +19,7 @@ const asking = function() {
   screenPrice = +prompt('Сколько будет стоить данная работа?', 1000);
 
 	do {
-		screenPrice = +prompt('Сколько будет стоить данная работа?', 1000);
+		screenPrice = prompt('Сколько будет стоить данная работа?', 1000);
 	}
   while (!isNumber(screenPrice));
 
