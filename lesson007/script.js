@@ -9,6 +9,7 @@ const appData = {
 	 servicePercentPrice: 0,
 	 service1: '',
 	 service2: '',
+
 	 asking: function() {
 			appData.title = prompt('Как называется ваш проект?', 'Как называется ваш проект?');
 			appData.screens = prompt('Какие типы экранов нужно разработать?', 'Какие типы экранов нужно разработать?');
@@ -19,9 +20,11 @@ const appData = {
 
 			appData.adaptive = confirm('Нужен ли адаптив на сайте?');
 	 },
+
    isNumber: function(num) {
     return !isNaN(parseFloat(num)) && isFinite(num)
    },
+
    getAllServicePrices: function() {
     let sum = 0;
 
@@ -34,15 +37,16 @@ const appData = {
         appData.service2 = prompt('Какой дополнительный тип услуги нужен?', 'Какой дополнительный тип услуги нужен 2?')
       }
 
-      newSum = +(prompt('Сколько это будет стоить? 2 раза должно быть', 1000));
+      do {
+        price = prompt('Сколько будет стоить данная услуг?');
+      } while (!appData.isNumber(price));
 
-      if(appData.isNumber(newSum)) {
-        sum += newSum;
-      }
+      sum += +price;
     }
 
-    return sum
+    return sum;
    },
+
    getRollbackMessage: function(price) {
       if (price > 30000) {
         return 'Даем скидку в 10%';
@@ -54,22 +58,31 @@ const appData = {
         return 'Что то пошло не так';
       }
    },
+
    getFullPrice: function() {
-      return +appData.screenPrice + appData.getAllServicePrices();
+      return +appData.screenPrice + appData.allServicePrices;
    },
+
    getTitle: function() {
       return appData.title.trim().charAt(0).toUpperCase() + appData.title.trim().slice(1).toLowerCase();
    },
+
    getServicePercentPrices: function() {
-    return Math.ceil(appData.getFullPrice() - (appData.getFullPrice() * (appData.rollback/100)))
+    return Math.ceil(appData.fullPrice - (appData.fullPrice * (appData.rollback/100)))
    },
+
    logger: function() {
-     for (data in appData) {
+     for (let data in appData) {
        console.log(data);
      }
    },
+
    start: function() {
       appData.asking()
+      appData.allServicePrices = appData.getAllServicePrices();
+      appData.fullPrice = appData.getFullPrice();
+      appData.servicePercentPrice = appData.getServicePercentPrices();
+      appData.title = appData.getTitle();
       appData.logger()
    }
 	}
