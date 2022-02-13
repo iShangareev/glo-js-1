@@ -25,11 +25,12 @@ chapterTwo[4].before(chapterTwo[8]);
 chapterFive[1].after(chapterFive[9]);
 chapterFive[2].before(chapterFive[3]);
 chapterFive[2].before(chapterFive[4]);
+chapterFive[7].after(chapterFive[5]);
 
 
 chapterSix[9].before(elem);
 
 
 console.log(chapterSix)
-console.log()
+
 
