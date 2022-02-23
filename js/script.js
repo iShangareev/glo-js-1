@@ -95,6 +95,12 @@ const appData = {
     this.screens = []
     this.fullPrice = 0
     this.servicePercentPrice = 0
+    this.rollback = 0
+    this.screenPrice = 0
+    this.servicePricesNumber = 0
+    this.servicePricesPercent = 0
+    this.servicesNumber = {}
+    this.servicesPercent = {}
 
     screens.forEach((el,index) => {
       if(index != 0) {
