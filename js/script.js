@@ -91,6 +91,11 @@ const appData = {
     const actionsL = [...inputs, ...selects]
     const inputsR = [...totalAll]
 
+    this.screenPrice = 0
+    this.screens = []
+    this.fullPrice = 0
+    this.servicePercentPrice = 0
+
     screens.forEach((el,index) => {
       if(index != 0) {
         el.remove()
